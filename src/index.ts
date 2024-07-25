@@ -3,12 +3,14 @@ import "reflect-metadata"
 import app from "./app";
 import {AppDataSource} from "./db";
 
+import { PORT } from "./config";
+
 async function main(){
     try {
         AppDataSource.initialize();
 
-        app.listen(3000)
-        console.log('Server listening on port', 3000);
+        app.listen(PORT)
+        console.log('Server listening on port', PORT);
     } catch (error) {
         console.log(error);
     }

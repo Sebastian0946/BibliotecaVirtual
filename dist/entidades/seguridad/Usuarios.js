@@ -70,5 +70,5 @@ __decorate([
     __metadata("design:type", Date)
 ], Usuarios.prototype, "FechaActualizacion", void 0);
 exports.Usuarios = Usuarios = __decorate([
-    (0, typeorm_1.Entity)({ name: 'Usuarios', schema: 'seguridad' })
+    (0, typeorm_1.Entity)({ name: 'Usuarios' })
 ], Usuarios);

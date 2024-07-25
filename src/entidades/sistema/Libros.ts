@@ -6,7 +6,7 @@ enum Estado {
     Inactivo = 'Inactivo',
 }
 
-@Entity({name:'Libros', schema:'sistema'})
+@Entity({name:'Libros'})
 export class Libros extends BaseEntity{
     
     @PrimaryGeneratedColumn()

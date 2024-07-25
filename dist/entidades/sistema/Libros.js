@@ -60,5 +60,5 @@ __decorate([
     __metadata("design:type", Date)
 ], Libros.prototype, "FechaActualizacion", void 0);
 exports.Libros = Libros = __decorate([
-    (0, typeorm_1.Entity)({ name: 'Libros', schema: 'sistema' })
+    (0, typeorm_1.Entity)({ name: 'Libros' })
 ], Libros);
