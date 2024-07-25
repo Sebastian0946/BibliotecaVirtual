@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const Libros_Controlador_1 = require("../../Controlador/sistema/Libros.Controlador");
+const ValidarCamposLibros_1 = require("../../Milddleware/sistema/ValidarCamposLibros");
+const router = (0, express_1.Router)();
+router.get('/Sistema/Libros', Libros_Controlador_1.BuscarLibros);
+router.get('/Sistema/Libros:id', Libros_Controlador_1.BuscarLibro);
+router.post('/Sistema/Libros', ValidarCamposLibros_1.validarCamposLibros, Libros_Controlador_1.CrearLibro);
+router.put('/Sistema/Libros/:id', ValidarCamposLibros_1.validarCamposLibros, Libros_Controlador_1.ActualizarLibro);
+router.delete('/Sistema/Libros/:id', Libros_Controlador_1.InactivarLibro);
+exports.default = router;
