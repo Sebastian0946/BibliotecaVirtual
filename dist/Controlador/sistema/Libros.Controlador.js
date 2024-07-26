@@ -146,7 +146,7 @@ const InactivarLibro = (req, res) => __awaiter(void 0, void 0, void 0, function*
     try {
         const { id } = req.params;
         const libroRepository = db_1.AppDataSource.getRepository(Libros_1.Libros);
-        // Verificar si el usuario existe
+        // Verificar si el libro existe
         const libroExistente = yield libroRepository.findOne({ where: { Id: Number(id) } });
         if (!libroExistente) {
             return res.status(404).json({
@@ -159,20 +159,20 @@ const InactivarLibro = (req, res) => __awaiter(void 0, void 0, void 0, function*
                 message: "Este libro no se puede Inactivar. El estado debe ser 'Inactivo'."
             });
         }
-        // Verificar si el estado actual del usuario ya es 'Inactivo'
+        // Verificar si el estado actual del libro ya es 'Inactivo'
         if (libroExistente.Estado === 'Inactivo') {
             return res.status(400).json({
-                message: "El usuario ya se encuentra desactivado."
+                message: "El libro ya se encuentra eliminado."
             });
         }
         // Actualizar el estado del usuario a 'Inactivo'
         libroExistente.Estado = req.body.Estado;
-        // Guardar el usuario con el estado actualizado
+        // Guardar el libro con el estado actualizado
         const libroActualizado = yield libroRepository.save(libroExistente);
         // Verificar si se actualizó correctamente
         if (libroActualizado) {
             res.status(200).json({
-                message: "Libro desactivado exitosamente",
+                message: "Libro eliminado exitosamente",
             });
         }
         else {

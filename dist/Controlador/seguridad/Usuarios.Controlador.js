@@ -172,7 +172,7 @@ const InactivarUsuario = (req, res) => __awaiter(void 0, void 0, void 0, functio
         // Verificar si el estado actual del usuario ya es 'Inactivo'
         if (usuarioExistente.Estado === 'Inactivo') {
             return res.status(400).json({
-                message: "El usuario ya se encuentra desactivado."
+                message: "El usuario ya se encuentra eliminado."
             });
         }
         // Actualizar el estado del usuario a 'Inactivo'
@@ -182,7 +182,7 @@ const InactivarUsuario = (req, res) => __awaiter(void 0, void 0, void 0, functio
         // Verificar si se actualizó correctamente
         if (usuarioActualizado) {
             res.status(200).json({
-                message: "Usuario desactivado exitosamente",
+                message: "Usuario eliminado exitosamente",
             });
         }
         else {
