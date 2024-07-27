@@ -190,7 +190,7 @@ export const InactivarUsuario = async (req: Request, res: Response) => {
         // Verificar si el estado actual del usuario ya es 'Inactivo'
         if (usuarioExistente.Estado === 'Inactivo') {
             return res.status(400).json({
-                message: "El usuario ya se encuentra desactivado."
+                message: "El usuario ya se encuentra eliminado."
             });
         }
 
@@ -203,7 +203,7 @@ export const InactivarUsuario = async (req: Request, res: Response) => {
         // Verificar si se actualizó correctamente
         if (usuarioActualizado) {
             res.status(200).json({
-                message: "Usuario desactivado exitosamente",
+                message: "Usuario eliminado exitosamente",
             });
         } else {
             res.status(404).json({

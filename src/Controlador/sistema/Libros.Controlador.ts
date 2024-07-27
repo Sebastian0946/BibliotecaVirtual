@@ -156,7 +156,7 @@ export const InactivarLibro = async (req: Request, res: Response) => {
         const { id } = req.params;
         const libroRepository = AppDataSource.getRepository(Libros);
 
-        // Verificar si el usuario existe
+        // Verificar si el libro existe
         const libroExistente = await libroRepository.findOne({ where: { Id: Number(id) } });
 
         if (!libroExistente) {
@@ -172,23 +172,23 @@ export const InactivarLibro = async (req: Request, res: Response) => {
             });
         }
 
-        // Verificar si el estado actual del usuario ya es 'Inactivo'
+        // Verificar si el estado actual del libro ya es 'Inactivo'
         if (libroExistente.Estado === 'Inactivo') {
             return res.status(400).json({
-                message: "El usuario ya se encuentra desactivado."
+                message: "El libro ya se encuentra eliminado."
             });
         }
 
         // Actualizar el estado del usuario a 'Inactivo'
         libroExistente.Estado = req.body.Estado;
 
-        // Guardar el usuario con el estado actualizado
+        // Guardar el libro con el estado actualizado
         const libroActualizado = await libroRepository.save(libroExistente);
 
         // Verificar si se actualizó correctamente
         if (libroActualizado) {
             res.status(200).json({
-                message: "Libro desactivado exitosamente",
+                message: "Libro eliminado exitosamente",
             });
         } else {
             res.status(404).json({

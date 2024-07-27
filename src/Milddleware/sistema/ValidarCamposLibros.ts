@@ -41,7 +41,7 @@ export const validarCamposLibros = (req: Request, res: Response, next: NextFunct
         // Si hay campos faltantes en un POST, responder con un error 400
         if (camposFaltantes.length > 0) {
             return res.status(400).json({
-                message: `Los siguientes campos son obligatorios en un POST: ${camposFaltantes.join(', ')}`,
+                message: `Los siguientes campos son obligatorios: ${camposFaltantes.join(', ')}`,
                 data: req.body  
             });
         }
